@@ -1,5 +1,6 @@
 {
     "name": "GALACTIC BATTLEFIELD ARCADE",
+    "version": "1.0.0",
     "description": "",
     "dependencies": {
         "device": "*",
