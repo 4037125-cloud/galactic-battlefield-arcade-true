@@ -185,6 +185,7 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
                 . . . . . . . b d b . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, Executioner, 150, -70)
+            Projectile_5.setKind(SpriteKind.Projectile2)
             Projectile_5 = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -203,6 +204,7 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
                 . . . . . . . b d b . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, Executioner, 150, 0)
+            Projectile_5.setKind(SpriteKind.Projectile2)
             Projectile_5 = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -247,6 +249,7 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
                 . . . . . . . b d b . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, Executioner, 150, -70)
+            Projectile_5.setKind(SpriteKind.Projectile2)
             Projectile_5 = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -265,6 +268,7 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
                 . . . . . . . b d b . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, Executioner, 150, 0)
+            Projectile_5.setKind(SpriteKind.Projectile2)
             Projectile_5 = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -283,6 +287,7 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
                 . . . . . . . b d b . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, Executioner, 150, 70)
+            Projectile_5.setKind(SpriteKind.Projectile2)
             scene.cameraShake(3, 100)
             music.play(music.createSoundEffect(WaveShape.Sine, 2000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
             pause(50)
@@ -374,7 +379,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `, SkyStryker, 220, 0)
             Projectile_1.setKind(SpriteKind.Projectile)
             music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            pause(50)
+            pause(40)
         }
     } else {
         if (controller.player1.isPressed(ControllerButton.A)) {
@@ -398,7 +403,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `, SkyStryker, 280, 0)
             Projectile_7.setKind(SpriteKind.Projectile)
             music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            pause(50)
+            pause(40)
         }
     }
 })
@@ -442,7 +447,7 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
                 `, Executioner, 220, 0)
             Projectile_2.setKind(SpriteKind.Projectile2)
             music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            pause(50)
+            pause(40)
         }
     } else {
         if (controller.player2.isPressed(ControllerButton.A)) {
@@ -466,7 +471,7 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
                 `, Executioner, 280, 0)
             Projectile_8.setKind(SpriteKind.Projectile2)
             music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            pause(50)
+            pause(40)
         }
     }
 })
@@ -673,7 +678,7 @@ controller.combos.attachCombo("A+B URDL A+B", function () {
     )
     if (mp.isConnected(mp.playerSelector(mp.PlayerNumber.Two))) {
         info.player2.setLife(100)
-        sprites.destroy(Executioner)
+        sprites.destroy(Executioner, effects.none, 100)
         game.showLongText("SUPER STRYKER AND HYPER EXECUTIONER PROTOCOLS ENGAGED", DialogLayout.Center)
         Executioner = sprites.create(img`
             ..................
@@ -823,7 +828,7 @@ info.player2.onLifeZero(function () {
     }
 })
 sprites.onOverlap(SpriteKind.Projectile2, SpriteKind.BossEnemy, function (sprite, otherSprite) {
-    sprites.destroy(Projectile_1, effects.fire, 100)
+    sprites.destroy(Projectile_2, effects.fire, 100)
     BossHealth += -1
     scene.cameraShake(5, 200)
     music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.UntilDone)
